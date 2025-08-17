@@ -1,9 +1,10 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to right, #0f0047, #386dff);
-  color: white;
+  background: linear-gradient(to right, #0F1C3F, #1A346E);
+  color: #E0E0E0;
   line-height: 1.6;
+  transition: background 0.5s ease;
 }
 
 header {
@@ -16,7 +17,7 @@ header {
   justify-content: flex-end;
   padding: 0 10px;
   background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px); /* adiciona blur */
+  backdrop-filter: blur(10px);
   z-index: 1000;
   transition: background 0.3s;
 }
@@ -50,7 +51,7 @@ header.scrolled {
     right: 0;
     background: rgba(0,0,0,0.9);
     width: 200px;
-    display: none; /* inicialmente escondido */
+    display: none;
   }
 
   .navbar.active {
@@ -65,7 +66,6 @@ header.scrolled {
   text-decoration: none;
   position: relative;
   transition: color 0.3s;
-
   opacity: 0;
   transform: translateY(-20px);
   animation: slideIn 0.5s forwards;
@@ -91,7 +91,7 @@ header.scrolled {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #00bfff;
+  background-color: #5D9CEC;
   transition: width 0.3s;
 }
 
@@ -100,7 +100,7 @@ header.scrolled {
 }
 
 .navbar a:hover {
-  color: #00bfff;
+  color: #5D9CEC;
 }
 
 .hero {
@@ -121,17 +121,40 @@ header.scrolled {
 
 .subtitle {
   font-size: 1.5rem;
-  color: #0066ff;
+  color: #5D9CEC;
   margin-top: -15px;
   opacity: 0;
-  animation: slideFadeIn 1s ease 0.2s forwards; /* começa 1s depois do título */
+  animation: slideFadeIn 1s ease 0.2s forwards;
+}
+
+/* Adicionando o cursor pointer para a imagem da logo */
+#logo-link {
+  cursor: pointer;
 }
 
 #logoimg{
     width: 200px;
 }
 
-/* Keyframes da animação */
+/* Tornar a logo chamativa e animada */
+#logo-link img {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 1s infinite;
+}
+
+#logo-link img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
 @keyframes slideFadeIn {
   0% {
     opacity: 0;
@@ -180,7 +203,7 @@ header.scrolled {
   width: 80px;
 }
 
-/*projetos */
+/* Projetos */
 
 .projects-grid {
   display: grid;
@@ -190,9 +213,9 @@ header.scrolled {
 }
 
 .project-card {
-  background: #10255f;
+  background: #152B5B;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
@@ -200,7 +223,7 @@ header.scrolled {
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
 .project-card img {
@@ -229,7 +252,7 @@ header.scrolled {
   margin-right: 10px;
   padding: 8px 15px;
   border-radius: 8px;
-  background-color: #007bff;
+  background-color: #5D9CEC;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -237,7 +260,7 @@ header.scrolled {
 }
 
 .project-links a:hover {
-  background-color: #0056b3;
+  background-color: #4086D1;
 }
 
 html {
@@ -252,8 +275,8 @@ html {
 }
 
 .about-text {
-  flex: 1;          /* texto ocupa menos espaço */
-  max-width: 350px; /* força ficar mais estreito → mais linhas */
+  flex: 1;
+  max-width: 350px;
 }
 
 .about-text p {
@@ -270,39 +293,29 @@ html {
 }
 
 .about-img {
-  flex: 1;               /* cada imagem ocupa espaço igual */
-  max-width: 300px;      /* limite de tamanho */
+  flex: 1;
+  max-width: 300px;
   width: 100%;
-  border: 4px solid;    
+  border: 4px solid;
   border-image-slice: 1;
-  border-image-source: linear-gradient(90deg, #00bfff, #0040ff, #00ffff, #1900ff);
+  border-image-source: linear-gradient(90deg, #5D9CEC, #4A77D1, #5D9CEC, #405AA8);
   animation: borderAnim 3s linear infinite;
-  object-fit: cover;     /* garante que o conteúdo da imagem se ajuste ao tamanho */
+  object-fit: cover;
 }
 
 .about-images {
   display: flex;
-  gap: 20px;            /* espaço entre as imagens */
-  flex-wrap: wrap;       /* se a tela for pequena, as imagens quebram para a próxima linha */
-  justify-content: center; 
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 @keyframes borderAnim {
-  0% {
-    border-image-source: linear-gradient(90deg, #00bfff, #0040ff, #00ffff, #0077ff);
-  }
-  25% {
-    border-image-source: linear-gradient(90deg, #0040ff, #00ffff, #0077ff, #00bfff);
-  }
-  50% {
-    border-image-source: linear-gradient(90deg, #00ffff, #0077ff, #00bfff, #0040ff);
-  }
-  75% {
-    border-image-source: linear-gradient(90deg, #0077ff, #00bfff, #0040ff, #00ffff);
-  }
-  100% {
-    border-image-source: linear-gradient(90deg, #00bfff, #0040ff, #00ffff, #0077ff);
-  }
+  0% { border-image-source: linear-gradient(90deg, #5D9CEC, #4A77D1, #5D9CEC, #405AA8); }
+  25% { border-image-source: linear-gradient(90deg, #4A77D1, #5D9CEC, #405AA8, #5D9CEC); }
+  50% { border-image-source: linear-gradient(90deg, #5D9CEC, #405AA8, #5D9CEC, #4A77D1); }
+  75% { border-image-source: linear-gradient(90deg, #405AA8, #5D9CEC, #4A77D1, #5D9CEC); }
+  100% { border-image-source: linear-gradient(90deg, #5D9CEC, #4A77D1, #5D9CEC, #405AA8); }
 }
 
 /* Centralizar título e parágrafo */
@@ -316,7 +329,7 @@ html {
   font-size: 18px;
 }
 
-/*parte das habilidades: */
+/* Parte das habilidades */
 
 #skills h1 {
   text-align: center;
@@ -338,41 +351,38 @@ html {
   font-size: 18px;
 }
 
-/* Container do marquee limitado a 3 cards visíveis */
 .marquee {
   overflow: hidden;
-  width: calc(3 * 140px); /* 3 cards de 120px + 2 gaps de 10px (ajuste conforme gap) */
+  width: calc(3 * 140px);
   padding: 15px;
   margin: auto;
 }
 
-/* Conteúdo do marquee */
 .marquee-content {
   display: flex;
-  gap: 20px; /* gap entre os cards */
-  animation: scroll 8s linear infinite; /* velocidade do trenzinho */
+  gap: 20px;
+  animation: scroll 8s linear infinite;
   padding: 15px;
 }
 
-/* Cards */
 .icon-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 120px;   /* largura fixa do card */
+  width: 120px;
   padding: 15px;
   border-radius: 15px;
-  background: linear-gradient(90deg, #2433b9, #1a3481, #1944b9, #091f5c);
+  background: linear-gradient(90deg, #152B5B, #1A346E, #152B5B, #0F1C3F);
   background-size: 300% 300%;
   animation: gradientBorder 3s linear infinite;
-  box-shadow: 0 0 20px rgba(0,191,255,0.5);
+  box-shadow: 0 0 15px rgba(93,156,236,0.5);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .icon-wrapper:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 30px rgba(0,191,255,0.8);
+  box-shadow: 0 0 25px rgba(93,156,236,0.8);
 }
 
 .icon-wrapper .icon {
@@ -381,22 +391,213 @@ html {
   border-radius: 10px;
 }
 
-/* Nome da habilidade */
 .icon-wrapper p {
   margin-top: 10px;
   color: white;
   text-align: center;
 }
 
-/* Animação do gradiente da borda */
 @keyframes gradientBorder {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Animação contínua do marquee */
 @keyframes scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* move metade do conteúdo duplicado */
+  100% { transform: translateX(-50%); }
 }
+
+/* Seção Formação */
+.education-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.education-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.education-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: justify;
+  color: #e0e0e0;
+}
+
+.education-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.education-list li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 17px;
+  color: #ffffff;
+}
+
+.education-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #5D9CEC;
+  font-weight: bold;
+}
+
+.education-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.edu-img {
+  max-width: 200px;
+  border-radius: 15px;
+  border: 3px solid #5D9CEC;
+  box-shadow: 0 0 15px rgba(93,156,236,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-left: 20px;
+}
+
+.edu-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(93,156,236,0.8);
+}
+
+.materias-img {
+  max-width: 650px;
+  height: 200px;
+  border-radius: 15px;
+  border: 3px solid #5D9CEC;
+  box-shadow: 0 0 15px rgba(93,156,236,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.materias-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(93,156,236,0.8);
+}
+
+/* Animações de entrada */
+.reveal, .reveal-left, .reveal-right {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-left {
+  transform: translateX(-50px);
+}
+
+.reveal-right {
+  transform: translateX(50px);
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.highlight {
+  color: #5D9CEC;
+  font-weight: bold;
+}
+
+/* Seção de Objetivos */
+.goals-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.goals-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.goals-p{
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+  color: #e0e0e0;
+}
+
+.goals-images {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.pic-img{
+  max-width: 300px;
+  height: auto;
+  border-radius: 100%;
+  border: 5px solid #5D9CEC;
+  box-shadow: 0 0 15px rgba(93,156,236,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pic-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(93,156,236,0.8);
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+}
+
+.contact-card {
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 60px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.contact-text {
+  font-size: 18px;
+  color: #E0E0E0;
+  margin-bottom: 25px;
+}
+
+.contact-btn {
+  background: linear-gradient(90deg, #5D9CEC, #4086D1);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(93,156,236,0.5);
+}
+
+.contact-btn.copied {
+  background: #00d9ff;
+  color: #001f33;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 217, 255, 0.7);
+}
+
