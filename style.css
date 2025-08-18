@@ -482,6 +482,10 @@ html {
   box-shadow: 0 0 25px rgba(93,156,236,0.8);
 }
 
+.reveal{
+  text-align: justify;
+}
+
 /* Animações de entrada */
 .reveal, .reveal-left, .reveal-right {
   opacity: 0;
@@ -672,3 +676,77 @@ html {
   gap: 20px;
 }
 
+/* Responsividade Geral */
+@media (max-width: 1024px) {
+  .center-text-p, .about-text, .goals-text, .education-text {
+    max-width: 100%;
+  }
+
+  .hero {
+    height: auto;
+    padding: 80px 20px;
+  }
+
+  #logoimg {
+    width: 150px;
+  }
+
+  .projects-grid {
+    gap: 20px;
+  }
+
+  .project-card img {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    width: 200px;
+    display: none;
+  }
+  .navbar.active {
+    display: flex;
+  }
+
+  .about-content, .education-content, .goals-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-images, .education-image, .goals-images {
+    justify-content: center;
+  }
+
+  .contact-card {
+    padding: 30px 20px;
+  }
+
+  .marquee {
+    width: 100%;
+  }
+
+  .center-text-p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  #logoimg {
+    width: 120px;
+  }
+  .contact-card {
+    padding: 20px 15px;
+  }
+}
