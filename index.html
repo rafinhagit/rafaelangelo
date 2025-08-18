@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rafael Ângelo - Porfólio</title>
+  <title>Rafael Ângelo - Portfólio</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="logo.png" type="image/x-icon">
@@ -123,6 +123,7 @@
           <p class="reveal">Criei um jogo de luta em que cada personagem possui características únicas e habilidades especiais, utilizando C# na Unity. A ideia surgiu em parceria com um amigo, que ficou responsável pela modelagem dos personagens. Este é um dos meus projetos mais completos, pois envolveu a combinação de habilidades de design de personagens, programação, além de integração de sons e música.</p>
           <div class="project-links reveal">
             <a href="https://battleroyaleoficial.netlify.app" target="_blank">Jogar</a>
+            <a href="https://github.com/rafinhagit/battleroyale" target="_blank" id="gitBut">Ver GitHub</a>
           </div>
         </div>
       </div>
@@ -133,7 +134,11 @@
   <div class="contact-card">
     <h1 class="section-title">Contato</h1>
     <p class="contact-text">Gostou? contate-me.</p>
-    <button id="copy-email" class="contact-btn">rafaelangeloff@gmail.com</button>
+    <div class="items-contact">
+      <button id="copy-email" class="contact-btn">rafaelangeloff@gmail.com</button>
+    <button onclick="window.open('https://github.com/rafinhagit?tab=overview', '_blank')" class="buttonGit">GitHub</button>
+    <audio id="clickSound" src="clickSound.mp3" preload="auto"></audio>
+    </div>
   </div>
 </section>
 
@@ -167,7 +172,14 @@ copyBtn.addEventListener('click', () => {
   });
 });
 
-  </script>
+const button = document.getElementById('copy-email');
+const sound = document.getElementById('clickSound');
 
+button.addEventListener('click', () => {
+  sound.currentTime = 0; // reinicia o som se clicar várias vezes rápido
+  sound.play();
+});
+
+  </script>
 </body>
 </html>
