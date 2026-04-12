@@ -1,12 +1,33 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  /*background: linear-gradient(to right, #0F1C3F, #1A346E);*/
-  background-image: url(imgs/background.jpg);
-  background-attachment: fixed;
+  background: linear-gradient(to right, #0F1C3F, #1A346E);
   color: #E0E0E0;
   line-height: 1.6;
   transition: background 0.5s ease;
+}
+
+.bg-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: 
+    linear-gradient(rgba(15,28,63,0.7), rgba(26,52,110,0.7)),
+    url("imgs/background.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  z-index: -1;
+
+  transform: scale(1.1); /* 🔥 IMPORTANT */
+}
+
+.bg-fixed {
+  will-change: transform;
 }
 
 header {
